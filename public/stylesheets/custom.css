@@ -3,13 +3,11 @@
 }
 
 body {
-  background: #e2e2ff;
+  background: #e2e2e2;
 }
 
-#logo {
-  font-size: 200%;
-  color: #000080;
-  text-decoration: none;
+.logo {
+  height: 80px;
 }
 
 header {
