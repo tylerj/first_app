@@ -1,8 +1,7 @@
 PicksLeague::Application.routes.draw do
-  
-  get "users/new"
 
-  root :to => "pages#home"
+  
+  resources :users
   
   match '/contact',              :to => 'pages#contact'
   match '/about',                :to => 'pages#about'
@@ -11,6 +10,8 @@ PicksLeague::Application.routes.draw do
   #match '/signin',               :to => 'sessions#new'
   #match '/signout',              :to => 'sessions#destroy'
 
+  root :to => "pages#home"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
