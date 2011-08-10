@@ -10,7 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110808160732) do
+ActiveRecord::Schema.define(:version => 20110809230959) do
+
+  create_table "entries", :force => true do |t|
+    t.integer  "league_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entries", ["league_id", "name"], :name => "index_entries_on_league_id_and_name", :unique => true
+  add_index "entries", ["league_id"], :name => "index_entries_on_league_id"
+  add_index "entries", ["user_id"], :name => "index_entries_on_user_id"
+
+  create_table "leagues", :force => true do |t|
+    t.string   "name"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "admin_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

@@ -1,0 +1,29 @@
+<h1>All Leagues</h1>
+
+<%= will_paginate %>
+
+<table class="leagues">
+  <tr>
+    <th>
+      League Name
+    </th>
+    <th>
+      League Type
+    </th>
+    <th>
+      Password?
+    </th>
+    <th>
+      Administrator
+    </th>
+    <th>
+      Created On
+    </th>
+    <th>
+      Join
+    </th>
+  </tr>
+  <%= render @leagues %>
+</table>
+
+<%= will_paginate %>

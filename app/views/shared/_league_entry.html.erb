@@ -1,0 +1,8 @@
+<h2>Join an Existing League</h2>
+<%= form_for @entry do |f| %>
+  <%= render 'entries/fields', :f => f %>
+  <div class="actions">
+    <%= f.submit "Join League" %>
+  </div>
+<% end %><br/>
+<p>Don't know your league info?<br/><%= link_to "See a list of all the leagues!", leagues_path %></p>

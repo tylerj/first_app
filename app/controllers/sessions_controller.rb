@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+  before_filter :signed_in_user,      :only   => [:new, :create]
+  
   def new
     @title = "Sign in"
   end
@@ -12,6 +15,7 @@ class SessionsController < ApplicationController
       @title = "Sign in"
       render :new
     else
+      flash[:success] = "You have successfully signed in!"
       sign_in user
       redirect_back_or user
     end

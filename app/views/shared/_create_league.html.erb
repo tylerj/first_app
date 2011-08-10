@@ -1,0 +1,15 @@
+<h2>Create a Custom League</h2>
+<%= form_for @league do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :name, "League Name" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "League Password" %><br />
+    <%= f.text_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create League" %>
+  </div>
+<% end %>

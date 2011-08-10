@@ -14,6 +14,7 @@ describe UsersController do
     end
     
     describe "for signed-in non-admins" do
+    
       before(:each) do
         @user = test_sign_in(Factory(:user))
         second = Factory(:user, :name => "Bob", :email => "another@example.com")

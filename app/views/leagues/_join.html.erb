@@ -1,0 +1,5 @@
+<%= form_for @league.entries.build(:user_id => current_user, :name => ), 
+             :remote => true do |f| %>
+  <div><%= f.hidden_field :followed_id %></div>
+  <div class="actions"><%= f.submit "Follow" %></div>
+<% end %>

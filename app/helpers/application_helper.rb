@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def logo
     # Fill in.
-    logo = image_tag("logo.jpg", :alt => "PicksLeague.com", :class => "round logo")
+    logo = image_tag("logo.png", :alt => "PicksLeague.com", :class => "logo")
   end  
   # Return a title on a per-page basis.
   def title

@@ -9,3 +9,9 @@ end
 Factory.sequence :email do |n|
   "person-#{n}@example.com"
 end
+
+Factory.define :league do |league|
+  league.name        "League Example"
+  league.password    "password"
+  league.association :entry
+end

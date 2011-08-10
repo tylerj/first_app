@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Picks League!"
-      redirect_to @user
+      redirect_back_or @user
     else
       @title = "Sign up"
       @user.password = nil

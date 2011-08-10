@@ -7,7 +7,8 @@ body {
 }
 
 .logo {
-  height: 80px;
+  height: 130px;
+  background: none;
 }
 
 header {
@@ -126,7 +127,8 @@ table.profile {
 }
 
 td.main {
-  width: 70%;
+  vertical-align: top;
+  width: 50%;
   padding: 1em;
 }
 

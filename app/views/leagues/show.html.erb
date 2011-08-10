@@ -1,0 +1,26 @@
+<h1>All Entries</h1>
+<div id="join_form">
+
+</div>
+
+<%= will_paginate @entries%>
+
+<table class="league_entries">
+  <tr>
+    <th>
+      Entry Name
+    </th>
+    <th>
+      User Name
+    </th>
+    <th>
+      User Email
+    </th>
+    <th>
+      Paid?
+    </th>
+  </tr>
+  <%= render @entries %>
+</table>
+
+<%= will_paginate @entries%>

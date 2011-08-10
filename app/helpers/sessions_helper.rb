@@ -13,6 +13,10 @@ module SessionsHelper
     @current_user ||= user_from_remember_token
   end
   
+  def current_user_name
+    @current_user.name ||= user_from_remember_token.name
+  end
+  
   def current_user?(user)
     user == current_user
   end
@@ -25,14 +29,27 @@ module SessionsHelper
     cookies.delete(:remember_token)
     self.current_user = nil
   end
+  
+  def signed_in_user
+    redirect_to root_path if signed_in?
+  end
 
   def authenticate
-    deny_access unless signed_in?
+    deny_access("default") unless signed_in?
   end
   
-  def deny_access
-    store_location
-    redirect_to signin_path, :notice => "Please sign in to access this page."
+  def authenticate_join
+    deny_access("join") unless signed_in?
+  end
+  
+  def authenticate_create
+    deny_access("create") unless signed_in?
+  end
+  
+  def deny_access(type)
+    store_location(type)
+    notice_def = notice_type(type)
+    redirect_to signin_path, :notice => notice_def
   end
   
   def redirect_back_or(default)
@@ -50,8 +67,24 @@ module SessionsHelper
       cookies.signed[:remember_token] || [nil, nil]
     end
     
-    def store_location
-      session[:return_to] = request.fullpath
+    def store_location(type)
+      if type == "join"
+        session[:return_to] = new_entry_path
+      elsif type == "create"
+        session[:return_to] = new_league_path
+      else
+        session[:return_to] = request.fullpath
+      end
+    end
+    
+    def notice_type(type)
+      if type == "join"
+        return "Please sign in or create an account to join this league."
+      elsif type == "create"
+        return "Please sign in or create an account to start a new league."
+      else
+        return "Please sign in to access this page."
+      end  
     end
     
     def clear_return_to

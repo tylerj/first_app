@@ -1,5 +1,13 @@
-<h1>Picks League</h1>
-
-<p>Home page filler text</p>
-
+<table>
+<tr>
+<td class="main">
+<%= render 'shared/league_entry' %>
+</td>
+<td class="main">
+<%= render 'shared/create_league' %>
+</td>
+</tr>
+</table>
+<% if !signed_in? %>
 <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end %>
